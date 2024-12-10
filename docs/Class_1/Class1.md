@@ -11,7 +11,9 @@ First it is important to learn how to use the terminal. The terminal is a way to
 
 In order for all of us to be working on the same systems, we are going to enter the computational cluster through a SSH client. This client is a sofware programs that enables us to connect to remote computers (in this case, our cluster) by applying a secure shell protocol. Most computers have the SSH client installed within the terminal. However, in some cases, Windows users have to use and external terminal.
 
-Let's first try using the terminal for connecting to the cluster. For this, open the terminal and input the following command:
+> For those using Windows without the SSH client installed, we recommend installing the MobaXterm server. Please follow the instruction for downloading the client [here](https://mobaxterm.mobatek.net/download.html)
+
+Let's connect to the cluster. For this, open the terminal and input the following command:
 
 ```console 
 ssh [user]@172.16.24.2
