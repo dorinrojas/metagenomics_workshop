@@ -13,17 +13,24 @@ In order for all of us to be working on the same systems, we are going to enter 
 
 Let's first try using the terminal for connecting to the cluster. For this, open the terminal and input the following command:
 
-`ssh [user]@172.16.24.2`
+```console 
+ssh [user]@172.16.24.2
+```
 
 `[user]` must be change for the cluster username you were provided with. For example, my command would be:
 
-`ssh dorian.rojas@172.16.24.2`
+```console
+ssh dorian.rojas@172.16.24.2
+```
 
 After that, the terminal should ask for your password. Input it into the blank space. As a precaution, the terminal is not going to show what you are writting in the password. Following this, enter and you should see the welcome message of the HPC cluster of the University of Costa Rica
 
-
-
-
+```console
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: __
+[dorian.rojas@accessnode ~]$
+```
 
 dorian dorian
 dorian 
