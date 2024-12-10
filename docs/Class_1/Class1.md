@@ -41,12 +41,12 @@ Command|Function|Command|Function
 `cd ..`|Goes to parent dir|`cp <file> <file_copy>`|Copies a file
 `rm <file>`|Removes a file|`cp -r <dir> <dir_copy>`|Copies a dir
 `rm -r <dir>`|Removes a dir|`mv <file> <path>`|Moves file to path
-mkdir|Creates a dir|mv <file/dir> <new_name>|Changes name
-nano <file>|Creates an empty file|sbatch <file.slurm>|Runs .slurm file
-squeue|Shows running jobs|scancel <jobID>|Cancels job
-top|Shows activity|module load|Loads module
-module unload|Unloads module|module avail|Lists all avail modules
-module list|Lists loaded modules||
+`mkdir`|Creates a dir|`mv <file/dir> <new_name>`|Changes name
+`nano <file>`|Creates an empty file|`sbatch <file.slurm>`|Runs .slurm file
+`squeue`|Shows running jobs|`scancel <jobID>`|Cancels job
+`top`|Shows activity|`module load`|Loads module
+`module unload`|Unloads module|`module avail`|Lists all avail modules
+`module list`|Lists loaded modules||
 
 
 
