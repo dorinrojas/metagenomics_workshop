@@ -72,11 +72,66 @@ Explore some other basic commands individually by completing the following task.
 4. Delete the 'metagenomics' directory
 5. List the current running jobs
 
-dorian dorian
-dorian
-dorian
+To continue, we will explore the use of text files commands, which are relevant to work with slurm programs. There are a lot of text editor for use (e.g. vi, vim, nano, sublime). We'll use 'nano', which is newer, simpler, and easier than other editor like vim. Let's open a nano file:
+
+```console
+nano note.txt
+```
+
+This command opens a black screen where you can write in different lines. In the lower section, you have the main commands to work with the nano file. The most relevant function is to save and close the document. For this, you have to press `ctrl + x`. If the document is empty, it won't save anything in your directory (check with `ls`).
+
+Now, open again a nano file and write some line with your name multiple times and try to exit. You'll see the document ask for another command: "Save modified buffer". This basically asks if you want to save the changes make to the document. To continue press `y`. This will require to input the file name, but as we already test the name at the beginning, just press `enter`.
+
+In summary, to save a nano document with modification the command `ctrl + x + y + enter` is required. Check that the document was saved in your current directory with `ls`.
+
+```console
+[dorian.rojas@accessnode curso]$ nano note.txt
+[dorian.rojas@accessnode curso]$ ls
+note.txt
+[dorian.rojas@accessnode curso]$
+```
+
+Now let's explore other text file commands:
+
+Command|Function|Command|Function
+-------|--------|-------|--------
+`cat <file>`|Prints complete file|`head <file>`|Prints the first lines of file
+`tail <file>`|Prints last lines of file|`more <file>`|Prints little by little, exiting with `q`
+`wc <file>`|Counts words in file|`wc -l`|Counts lines in file
+`cmd > <file>`|Saves STDOUT in file|`cat <file1> <file2> > <file3>`|Concatenates files into file 3
+`grep "pattern" <file>`|Prints lines matching pattern|`awk`|Very diverse command for text manipulation
+
+Using the previously created file, we are going to explore these commands through the following tasks:
+
+1. Reopen the file and write 10 lines of different cities
+2. Print the complete document
+3. Print the last lines
+4. Print the first lines
+5. Try printing the lines little by little
+6. Create a new document with the 10 different names
+7. Concatenate the cities document with the names document
+8. Print only one line corresponding to one of the names in the document
+9. Count the number of lines in the concatenated document
+
+Finally, these are another relevant commands useful to work in Unix systems
+
+Command|Function|Command|Function
+-------|--------|-------|--------
+`gzip`|Compresses into .gzip|`zip`|Compresses into .zip
+`gunzip`|Decompresses a .gzip|`unzip`|Decompresses a .zip
+`tar -cf <dir>`|Compresses dir into .tar|`tar -x <.tar>`|Decompresses a .tar
+`wget <URL>`|Downloads file|`top`|Shows activity
+`scp <server>:<path> <path>`|Copies files between computers|`exit`|Exits remote connection
+
+Feel free to try and run these commands yourself. Be careful and ask question pertinent question to your instructur if required.
+
+## Workshop methodology and slurm files
+
+[]
 
 ## Task solutions
+
+**Basic commands tasks:**
 
 1. Go back to the parent directory
 
@@ -106,4 +161,60 @@ dorian
 
     ```console
     squeue
+    ```
+
+**Text file commands task:**
+
+1. Reopen the file and write 10 lines of different cities
+
+    ```console
+    nano note.txt
+    ```
+
+2. Print the complete document
+
+    ```console
+    cat note.txt
+    ```
+
+3. Print the last lines
+
+    ```console
+    tail note.txt
+    ```
+
+4. Print the first lines
+
+    ```console
+    head note.txt
+    ```
+
+5. Try printing the lines little by little
+
+    ```console
+    more note.txt
+    ```
+
+6. Create a new document with the 10 different names
+
+    ```console
+    nano names.txt
+    ```
+
+7. Concatenate the cities document with the names document
+
+    ```console
+    cat note.txt names.txt > concat.txt
+    ```
+
+8. Print only one line corresponding to one of the names in the document
+
+    ```console
+    grep "dorian" concat.txt
+    ```
+
+9. Count the number of lines in the concatenated document
+
+    ```console
+    wc -l concat.txt
     ```
