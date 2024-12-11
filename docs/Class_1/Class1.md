@@ -50,6 +50,9 @@ Command|Function|Command|Function
 `module unload`|Unloads module|`module avail`|Lists all avail modules
 `module list`|Lists loaded modules||
 
+
+
+
 Give a try to some of the basic commands. Input these in your console:
 
 ```console
