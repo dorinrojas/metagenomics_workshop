@@ -1,4 +1,5 @@
-Class 1: Basic Unix commands and workshop methodology<a name="TOP"></a>
+# Class 1: Basic Unix commands and workshop methodology
+
 =========
 
 ## Using Unix through the terminal
@@ -46,9 +47,6 @@ Command|Function|Command|Function
 `mkdir`|Creates a dir|`mv <file/dir> <new_name>`|Changes name
 `nano <file>`|Creates an empty file|`sbatch <file.slurm>`|Runs .slurm file
 `squeue`|Shows running jobs|`scancel <jobID>`|Cancels job
-`top`|Shows activity|`module load`|Loads module
-`module unload`|Unloads module|`module avail`|Lists all avail modules
-`module list`|Lists loaded modules|
 
 Give a try to some of the basic commands. Input these in your console:
 
@@ -80,32 +78,32 @@ dorian
 
 ## Task solutions
 
-1.Go back to the parent directory
+1. Go back to the parent directory
 
-```console
-cd ..
-```
+    ```console
+    cd ..
+    ```
 
-2.Print the complete path where you are located
+2. Print the complete path where you are located
 
-```console
-pwd
-```
+    ```console
+    pwd
+    ```
 
-3.Change the name of the directory to 'metagenomics'
+3. Change the name of the directory to 'metagenomics'
 
-```console
-mv test metagenomics
-```
+    ```console
+    mv test metagenomics
+    ```
 
-4.Delete the 'metagenomics' directory
+4. Delete the 'metagenomics' directory
 
-```console
-rm -r metagenomics
-```
+    ```console
+    rm -r metagenomics
+    ```
 
-5.List the current running jobs
+5. List the current running jobs
 
-```console
-squeue
-```
+    ```console
+    squeue
+    ```
