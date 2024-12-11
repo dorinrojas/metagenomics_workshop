@@ -3,11 +3,11 @@ Class 1: Basic Unix commands and workshop methodology<a name="TOP"></a>
 
 ## Using Unix through the terminal
 
-Unix is a platforms initially developed to construct other softwares. For example, the iOS softwares is written in a derivated of Unix language. This is systems is efficient is an universal operating systems currently used in many computer. It allows to run several softwares and small programs. 
+Unix is a platforms initially developed to construct other softwares. For example, the iOS softwares is written in a derivated of Unix language. This is systems is efficient is an universal operating systems currently used in many computer. It allows to run several softwares and small programs.
 
-The computational cluster (and most of them) that we are going to use in our workshop is based on Unix. Therefore, it is important to understand the main commands of the systems. 
+The computational cluster (and most of them) that we are going to use in our workshop is based on Unix. Therefore, it is important to understand the main commands of the systems.
 
-First it is important to learn how to use the terminal. The terminal is a way to communicate with the computer. It is common to be found under the names "Command prompt" or "Terminal". Contratry to Apple computers, Windows is built under a different system; thus, the commands we are going to explore do not work in the terminal. 
+First it is important to learn how to use the terminal. The terminal is a way to communicate with the computer. It is common to be found under the names "Command prompt" or "Terminal". Contratry to Apple computers, Windows is built under a different system; thus, the commands we are going to explore do not work in the terminal.
 
 In order for all of us to be working on the same systems, we are going to enter the computational cluster through a SSH client. This client is a sofware programs that enables us to connect to remote computers (in this case, our cluster) by applying a secure shell protocol. Most computers have the SSH client installed within the terminal. However, in some cases, Windows users have to use and external terminal.
 
@@ -15,7 +15,7 @@ In order for all of us to be working on the same systems, we are going to enter 
 
 Let's connect to the cluster. For this, open the terminal and input the following command:
 
-```console 
+```console
 ssh [user]@172.16.24.2
 ```
 
@@ -48,7 +48,7 @@ Command|Function|Command|Function
 `squeue`|Shows running jobs|`scancel <jobID>`|Cancels job
 `top`|Shows activity|`module load`|Loads module
 `module unload`|Unloads module|`module avail`|Lists all avail modules
-`module list`|Lists loaded modules||
+`module list`|Lists loaded modules|
 
 Give a try to some of the basic commands. Input these in your console:
 
@@ -68,35 +68,44 @@ Notice how the `ls` command does not output anything? It is because your account
 
 Explore some other basic commands individually by completing the following task. The answers or code samples to solve each task are at the final section of the page.
 
-1. Go back to the parent directory 
+1. Go back to the parent directory
 2. Print the complete path where you are located
 3. Change the name of the directory to 'metagenomics'
 4. Delete the 'metagenomics' directory
-5. List the current running jobs 
+5. List the current running jobs
 
 dorian dorian
-dorian 
-dorian 
+dorian
+dorian
 
 ## Task solutions
 
-1. Go back to the parent directory 
+1.Go back to the parent directory
+
 ```console
 cd ..
 ```
-2. Print the complete path where you are located
+
+2.Print the complete path where you are located
+
 ```console
 pwd
 ```
-3. Change the name of the directory to 'metagenomics'
+
+3.Change the name of the directory to 'metagenomics'
+
 ```console
 mv test metagenomics
 ```
-4. Delete the 'metagenomics' directory
+
+4.Delete the 'metagenomics' directory
+
 ```console
 rm -r metagenomics
 ```
-5. List the current running jobs 
+
+5.List the current running jobs
+
 ```console
 squeue
 ```
