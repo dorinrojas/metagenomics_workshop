@@ -28,7 +28,7 @@ During the workshop, a previously sequenced dataset will be used. These reads co
 
 ### Each class related to coding and analysis is separated into different Rmarkdown files. Below are the links: .
 
-[Class 1: Basic Unix commands and workshop methodology](docs/index.Rmd)
+[Class 1: Basic Unix commands and workshop methodology](docs/Class_1/Class1.md)
 
 
 Additional material will be provided through the [Google drive](https://drive.google.com/drive/folders/1GJg8bVriWXvrmJ6LAp1R9m4SdZDVOEXl?usp=sharing). 
