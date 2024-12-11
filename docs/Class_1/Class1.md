@@ -1,6 +1,6 @@
 # Class 1: Basic Unix commands and workshop methodology
 
-======================================================
+- - - -
 
 ## Using Unix through the terminal
 
