@@ -50,9 +50,6 @@ Command|Function|Command|Function
 `module unload`|Unloads module|`module avail`|Lists all avail modules
 `module list`|Lists loaded modules||
 
-
-
-
 Give a try to some of the basic commands. Input these in your console:
 
 ```console
@@ -68,6 +65,7 @@ Notice how the `ls` command does not output anything? It is because your account
 [dorian.rojas@accessnode test]$ pwd
 /home/dorian.rojas/curso/test
 ```
+
 Explore some other basic commands individually by completing the following task. The answers or code samples to solve each task are at the final section of the page.
 
 1. Go back to the parent directory 
