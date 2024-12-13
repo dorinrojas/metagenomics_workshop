@@ -4,13 +4,25 @@
 
 ## Using Unix through the terminal
 
-Unix is a platforms initially developed to construct other softwares. For example, the iOS softwares is written in a derivated of Unix language. This is systems is efficient is an universal operating systems currently used in many computer. It allows to run several softwares and small programs.
+Unix shell is a command-line interface (CLI) platform and scripting language initially developed to construct other softwares. For example, the iOS softwares is written in a derivated of Unix language. This is systems is efficient is an universal operating systems used in many computers. In addition, it allows to run several softwares and small programs.
 
-The computational cluster (and most of them) that we are going to use in our workshop is based on Unix. Therefore, it is important to understand the main commands of the systems.
+There are different types of Unix shells. However, the most popular among computers is Bash (Bourne Again SHell).Our computational cluster (and most of them) is based on Bash. Therefore, it is important to understand the main commands of the CLI.
 
-First it is important to learn how to use the terminal. The terminal is a way to communicate with the computer. It is common to be found under the names "Command prompt" or "Terminal". Contratry to Apple computers, Windows is built under a different system; thus, the commands we are going to explore do not work in the terminal.
+We are used to interact with computer in our daily life through a graphical user interface (GUI). Here, we provide instructions by clicking in folders and other directions from the menu that are learned intuitively. The shell lacks the presentation of the directories and works as a command line.
 
-In order for all of us to be working on the same systems, we are going to enter the computational cluster through a SSH client. This client is a sofware programs that enables us to connect to remote computers (in this case, our cluster) by applying a secure shell protocol. Most computers have the SSH client installed within the terminal. However, in some cases, Windows users have to use and external terminal.
+The shell is a more efficient way to communicate and work with a computer. It can be accessed through the "terminal" (also called "Command prompt"). Once you have opened a terminal, it initiates with the `$` symbol. This called a prompt and it is an indicator of the shell waiting for an input (the same reason it is also called "Command prompt"). Prior the dollar symbol, it is common to found the username of your computer.
+
+```console
+[dorian.rojas@accessnode test]$
+```
+
+Contratry to Apple computers, Windows is built under a different system; thus, the commands we are going to explore do not work in the windowns shell. In this case, the first line of the shell should look something like this:
+
+```console
+C:\Users\rojas>
+```
+
+In order to be working on the same systems, we are going to enter the computational cluster through a SSH client. This client is a sofware programs that enables us to connect to remote computers (in this case, our cluster) by applying a secure shell protocol. Most computers have the SSH client installed within the terminal. However, in some cases, Windows users have to use and external terminal.
 
 > For those using Windows without the SSH client installed, we recommend installing the MobaXterm server. Please follow the instruction for downloading the software [here](https://mobaxterm.mobatek.net/download.html)
 
@@ -63,6 +75,31 @@ Notice how the `ls` command does not output anything? It is because your account
 [dorian.rojas@accessnode test]$ pwd
 /home/dorian.rojas/curso/test
 ```
+
+Most command have a menu for the flags (or options) that can be used with them (e.g. `-r`). In order to see many you have to use the flag `--help` or `-h`.
+
+```console
+[dorian.rojas@accessnode test]$ ls --help
+Usage: ls [OPTION]... [FILE]...
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --all                  do not ignore entries starting with .
+  -A, --almost-all           do not list implied . and ..
+      --author               with -l, print the author of each file
+  -b, --escape               print C-style escapes for nongraphic characters
+      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;
+                               e.g., '--block-size=M'; see SIZE format below
+  -B, --ignore-backups       do not list implied entries ending with ~
+  -c                         with -lt: sort by, and show, ctime (time of last
+                               modification of file status information);
+                               with -l: show ctime and sort by name;
+                               otherwise: sort by ctime, newest first
+[help]
+```
+
+This command is essential for most tools, as it would allow to have an overview of the usage and requirements of the software prior to running. In bioinformatics, when we are trying out a new tools, this is very often used to access the menu on "How to run".
 
 Explore some other basic commands individually by completing the following task. The answers or code samples to solve each task are at the final section of the page.
 
