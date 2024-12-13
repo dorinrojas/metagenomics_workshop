@@ -22,7 +22,7 @@ During the workshop, a previously sequenced dataset will be used. These reads co
 
 Topic | Sub-topic | Used bioinformatics tools
 :------|:--------|--------:
-Human gastrointestinal microbiology and sequencing fundaments|- Physiological role of microbiome<br>- Omics sciences, New Generation Sequencing technologies, and bioinformatic data format|None
+Human gastrointestinal microbiology and sequencing fundaments|- Physiological role of microbiom  - Omics sciences, New Generation Sequencing technologies, and bioinformatic data format|None
 Computational cluster usage|- Cluster organization<br>- Usage guidelines<br> Basic Unix commands|None
 Quality control and filtering of human metagenomics sequences|- phred quality scale<br>- Decontamination of human reads<br>- Quality interpretation|metaWRAP_READ_QC (FastQC, TrimGalore, BMTagger)
 _De novo_ assembly of bacterial metagenomes|- Contigs assembly<br>-Binning of metagenome-assembly genomes (MAGs)<br>-Refinement and reassembly of MAGs|metaWRAP_ASSEMBLY (metaSPAdes, MEGAHIT)<br>metaWRAP_BINNING (MetaBat 2, MaxBin2, CONCOCT)<br>metaWRAP_REFINEMENT (CheckM)<br>metaWRAP_REASSEMBLE_BINS (SPAdes, CheckM)
