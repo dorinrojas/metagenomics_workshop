@@ -22,14 +22,16 @@ During the workshop, a previously sequenced dataset will be used. These reads co
 
 Topic | Sub-topic | Used bioinformatics tools
 :------|:--------|--------:
-Human gastrointestinal microbiology and sequencing fundaments|- Physiological role of microbiome\ - Omics sciences, New Generation Sequencing technologies, and bioinformatic data format|None
+Human gastrointestinal microbiology and sequencing fundaments|- Physiological role of microbiome <br>- Omics sciences, New Generation Sequencing technologies, and bioinformatic data format|None
 Computational cluster usage|- Cluster organization<br>- Usage guidelines<br> Basic Unix commands|None
 Quality control and filtering of human metagenomics sequences|- phred quality scale<br>- Decontamination of human reads<br>- Quality interpretation|metaWRAP_READ_QC (FastQC, TrimGalore, BMTagger)
 _De novo_ assembly of bacterial metagenomes|- Contigs assembly<br>-Binning of metagenome-assembly genomes (MAGs)<br>-Refinement and reassembly of MAGs|metaWRAP_ASSEMBLY (metaSPAdes, MEGAHIT)<br>metaWRAP_BINNING (MetaBat 2, MaxBin2, CONCOCT)<br>metaWRAP_REFINEMENT (CheckM)<br>metaWRAP_REASSEMBLE_BINS (SPAdes, CheckM)
 MAGs quality evaluation|- High-, middle-, and low-quality MAGs<br>- Quality, completeness, and contamination calculation<br>- Selection of representative MAGs|MDMcleaner<br>CheckM2<br>GUNC<br>dRep
+Functional and taxonomic annotation of MAGs|- Taxonomic annotation of MAGs<br>- Identification of metabolic pathwats<br>- Annotation of antibiotic resistance genes|GTDBtk<br>Abricate<br>eggNOG-mapper
 Ecological characterization of the microbiome|- Estimation of relative abundances<br>- Alpha and Beta diversity indexes<br>- Statistical analysis|Bowtie2<br>InStrain<br>R command line (phyloseq, microviz)
 
 ### Each class related to coding and analysis is separated into different Rmarkdown files. Below are the links
+
 
 [Class 1: Basic Unix commands and workshop methodology](docs/Class_1/Class1.md)
 
