@@ -4,11 +4,11 @@
 
 > This workshop is organized by the CABANAnet network in collaboration with the Cellular and Molecular Biology Research Center (CIBCM) and Informatics Center (CI) from the University of Costa Rica (UCR)
 
-* _ __Coordinator:__
-  * Ph.D. Rebeca Campos-Sánchez: Principal Investigator from the Cellular and Molecular Biology Research Center (CIBCM, UCR). Expertise in clinical and human genomics and metagenomics. [Google Scholar](https://scholar.google.com/citations?user=5Jdh-RkAAAAJ&hl=en&oi=ao)
+* ***Coordinator:***
+  * *Ph.D. Rebeca Campos-Sánchez: Principal Investigator from the Cellular and Molecular Biology Research Center (CIBCM, UCR). Expertise in clinical and human genomics and metagenomics. [Google Scholar](https://scholar.google.com/citations?user=5Jdh-RkAAAAJ&hl=en&oi=ao)*
 
-* __Instructor:__
-  * B.Sc. Dorian Rojas-Villalta: Secondee at the Cellular and Molecular Biology Research Center (CIBCM, UCR). Expertise in bacterial genomics and metagenomics. [Google Scholar](https://scholar.google.com/citations?user=kyLnECwAAAAJ&hl=en) _
+* ***Instructor:***
+  * *B.Sc. Dorian Rojas-Villalta: Secondee at the Cellular and Molecular Biology Research Center (CIBCM, UCR). Expertise in bacterial genomics and metagenomics. [Google Scholar](https://scholar.google.com/citations?user=kyLnECwAAAAJ&hl=en)*
 
 - - - -
 
