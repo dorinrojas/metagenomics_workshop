@@ -326,7 +326,7 @@ sbatch read_qc.slurm $sample2
 
 Finally, the slurm is the job we want to run. In order to use the accession sent from the `batch.sh` command we code based on a _for loop_. Loops are programming structure that allow the iteration of the inside command a specific number of time. In our case, the loop runs for the number of accession indicated in the `batch.sh` file. Note we use `sed -n '1p' accessions.txt`, only the first line of the .txt, meaning one single accession. However, this could be modified for any number of accessions. For instance, `sed -n '1,8p' accessions.txt` would run eight accessions. We have coded our `batch.sh` file for only one accession due to the limited number of sample we are analyzing.
 
-Additionally, the `batch.sh` file indicates to the _for loop_ to use the sample accessions as sample name (`sbatch read_qc.slurm $sample1`). Therefore, in the `.slurm` file, the command `for id in $@; do` indicates to run the code for the number of ids (`id`, an object) present in `$sample1` (`$@`). In Bash, to call the object we are require to set the prompt prior the name (`$id`, `$CTN_PATH`).
+Additionally, the `batch.sh` file indicates to the _for loop_ to use the sample accessions as sample name (`sbatch read_qc.slurm $sample1`). Therefore, in the `.slurm` file, the command `for id in $@; do` indicates to run the code for the number of ids (`id`, an object) present in `$sample1` (`$@`). In Bash, to call the object we are require to set the prompt prior the name (e.g. `$id`, `$CTN_PATH`).
 
 ```console
 for id in $@; do
