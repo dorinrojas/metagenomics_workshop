@@ -32,6 +32,6 @@ Ecological characterization of the microbiome|- Estimation of relative abundance
 
 ### Each class related to coding and analysis is separated into different markdown files. Below are the links
 
-[Class 1: Basic Unix commands and workshop methodology](docs/Class_1/Class1.md)
+[Class 1: Basic Unix shell Bash commands and workshop methodology](docs/Class_1/Class1.md)
 
 Additional material will be provided through the [Google drive](https://drive.google.com/drive/folders/1GJg8bVriWXvrmJ6LAp1R9m4SdZDVOEXl?usp=sharing).
