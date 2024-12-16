@@ -69,12 +69,18 @@ Give a try to some of the basic commands. Input these in your console:
 [dorian.rojas@accessnode test]$
 ```
 
-Notice how the `ls` command does not output anything? It is because your account is empty at the moment. Subsequently you create a new directory named 'test' (`code`) and the move to that directory (`cd test`). See the name of prior the $ changes? it indicated the directory in which you are currently. To obtain the full path to the current directory use `pwd`
+Notice how the `ls` command does not output anything? It is because your account is empty at the moment. Subsequently you create a new directory named 'test' (`code`) and the move to that directory (`cd test`). See the name of prior the $ changes? it indicated the directory in which you are currently. To obtain the full path to the current directory use `pwd`.
 
 ```console
 [dorian.rojas@accessnode test]$ pwd
 /home/dorian.rojas/curso/test
 ```
+
+> As mentioned above, the shell terminal is case sensitive and takes in consideration the spaces. Although in a GUI, we are use to use spaces, periods, among other special characters. Is it recommended that when working in Bash files and directories:
+    1. Don't have spaces. This will complete change the meaning of the command.
+    2. Don't start with - (dash).
+    3. Stick to letter and numbers.
+    4. If required, - (dash) or _ (underscore) can be used instead of spaces (e.g. `dorian_rojas` rather than `dorian rojas`).
 
 Most command have a menu for the flags (or options) that can be used with them (e.g. `-r`). In order to see many you have to use the flag `--help` or `-h`.
 
@@ -101,6 +107,22 @@ Mandatory arguments to long options are mandatory for short options too.
 
 This command is essential for most tools, as it would allow to have an overview of the usage and requirements of the software prior to running. In bioinformatics, when we are trying out a new tools, this is very often used to access the menu on "How to run".
 
+A shell command is composed by the prompt (`$`), the command (`ls`), options (`-h`), and arguments (what the indications operates on; for instance, a directory or a file). Moreover, options that do not require require arguments can be placed together. In this regard, `ls -lh` holds two flags, the `-l` for listing `-h` for transforming data into human-readble. Here, `ls -l -h` is synonyms of `ls -lh`.
+
+Other relevant command is the remove command (`rm`). In Unix shell, deleting is forever and there is no way to recover a removed file or directory. An interesting approach to have a double confirmation when deleting is running the rm command as follow:
+
+```console
+[dorian.rojas@accessnode curso]$ rm -i note.txt
+rm: remove regular file 'note.txt'? n
+[dorian.rojas@accessnode curso]$ rm -ir test/
+rm: remove directory 'test/'? n
+[dorian.rojas@accessnode curso]$ ls -F
+note.txt  test/
+[dorian.rojas@accessnode curso]$
+```
+
+The `-i` option prompts a delete confirmation that has to be answer using `Y` or `N` to delete or cance, respectively. This gives the user a chance to check the files and directories being deleted in order to avoid commiting undesierable removals.
+
 Explore some other basic commands individually by completing the following task. The answers or code samples to solve each task are at the final section of the page.
 
 1. Go back to the parent directory
@@ -119,7 +141,7 @@ This command opens a black screen where you can write in different lines. In the
 
 Now, open again a nano file and write some line with your name multiple times and try to exit. You'll see the document ask for another command: "Save modified buffer". This basically asks if you want to save the changes make to the document. To continue press `y`. This will require to input the file name, but as we already test the name at the beginning, just press `enter`.
 
-In summary, to save a nano document with modification the command `ctrl + x + y + enter` is required. Check that the document was saved in your current directory with `ls`.
+In summary, to save a nano document with modification the command `ctrl + x + y + enter` is required. Check that the document was saved in your current directory with `ls`. You can also save the file while writing using `ctrl + o` and then exit.
 
 ```console
 [dorian.rojas@accessnode curso]$ nano note.txt
@@ -150,7 +172,7 @@ Using the previously created file, we are going to explore these commands throug
 8. Print only one line corresponding to one of the names in the document
 9. Count the number of lines in the concatenated document
 
-Finally, these are another relevant commands useful to work in Unix systems
+These are another relevant commands useful to work in Unix systems
 
 Command|Function|Command|Function
 -------|--------|-------|--------
@@ -161,6 +183,17 @@ Command|Function|Command|Function
 `scp <server>:<path> <path>`|Copies files between computers|`exit`|Exits remote connection
 
 Feel free to try and run these commands yourself. Be careful and ask question pertinent question to your instructur if required.
+
+Finally, Unix shell have the chance to use wildcard to select multiple files at the same times. The two most important wildcards are `*` and `?`. The asterik `*` represent zero or more characters, whereas `?` represents exactly one character. For a better understading, set a directory with the files `methane.txt` and `ethane.txt`. For instance, `*ethane.txt` would indicate both files, while `?ethane.txt` only `methane.txt`.
+
+```console
+[dorian.rojas@accessnode curso]$ ls *ethane.txt
+ethane.txt  methane.txt
+[dorian.rojas@accessnode curso]$ ls ?ethane.txt
+methane.txt
+```
+
+Wildcards are relevant as they help to manage large set of data. For example, if you own a directory full of .fastq files and want to concatenate them into a single file, the command `cat *.fastq` would be efficient to get the job done. If not using wildcards, each name of the files would have to be input individually, which might becomes easily exhaustive if there are more than 5 files with large and complex names.
 
 ## Workshop methodology and slurm files
 
