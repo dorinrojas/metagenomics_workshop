@@ -148,12 +148,14 @@ fasterq-dump : 3.1.1
 
 You'll see the tool holds a great variety of options to download data. However, the only required argument is the accession name. We need to perform a simple download of the accession provided above in a directory called `1-data`. In this directory, all the raw data will be downloaded for the purpose of this workshop. Read the "How to run" information displayed in the terminal and try to create the files required to download the data.
 
-> Recomendations:
-> Remember three file are required to make the pipeline work: `accessions.txt`, `batch.sh`, and `.slurm`. You can go back to the previous class to use the template provided for the slurm header and batch file.
-> The accession file consist of only the accessions in separate lines. You can create the file with `nano` and copy paste the id from the beginning of this class.
-> Some tools create output directories if they do not exist (`fasterq-dump` does). However, I recommend to create these in advance, meaning `mkdir 1-data` should be the first command to be run in this example.
-> Personally, I like to name slumr files as the tools that is running. For instance, this slurm would be called `fasterq-dump.slurm`. However, you can give it the name you want.
-> All files and commands are deposited in the path `/home/public/met-workshop` and at the end of this github page. If you have doubts regarding if you file have any error you can ask the instructor or revise the file.
+Recomendations:
+
+1. Remember three file are required to make the pipeline work: `accessions.txt`, `batch.sh`, and `.slurm`. You can go back to the previous class to use the template provided for the slurm header and batch file.
+2. The accession file consist of only the accessions in separate lines. You can create the file with `nano` and copy paste the id from the beginning of this class.
+3. Some tools create output directories if they do not exist (`fasterq-dump` does). However, I recommend to create these in advance, meaning `mkdir 1-data` should be the first command to be run in this example.
+4. Personally, I like to name slumr files as the tools that is running. For instance, this slurm would be called `fasterq-dump.slurm`. However, you can give it the name you want.
+5. All files and commands are deposited in the path `/home/public/met-workshop` and at the end of this github page. If you have doubts regarding if you file have any error you can ask the instructor or revise the file.
+
 > I do not advice to copy and paste the template in your files. The idea of the workshop is for you to get familiar with writing and understanding the commands. This might sound archaic, but try and write them from scratch!
 
 Once you have the files. You can send the jobs through the `batch.sh` file. For this use the command:
