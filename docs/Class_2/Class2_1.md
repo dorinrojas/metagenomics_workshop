@@ -148,7 +148,7 @@ fasterq-dump : 3.1.1
 
 You'll see the tool holds a great variety of options to download data. However, the only required argument is the accession name. We need to perform a simple download of the accession provided above in a directory called `1-data`. In this directory, all the raw data will be downloaded for the purpose of this workshop. Read the "How to run" information displayed in the terminal and try to create the files required to download the data.
 
-Recomendations:
+**Recomendations:**
 
 1. Remember three file are required to make the pipeline work: `accessions.txt`, `batch.sh`, and `.slurm`. You can go back to the previous class to use the template provided for the slurm header and batch file.
 2. The accession file consist of only the accessions in separate lines. You can create the file with `nano` and copy paste the id from the beginning of this class.
@@ -206,11 +206,11 @@ Great part of the pipeline is performed throught the tool [metaWRAP](https://git
 
 There a vast variety of way to perform metagenomics analysis. For instance, you could use individual tools and different flags and parameters. However, metaWRAP servers as an parameterizer that allows a greater reproducibility. As the wrapper uses general databases and tools, it favors the analysis of different types of microbiomes (e.g. gut, water, soil) as demonstrated in the [benchmark paper](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0541-1).
 
-> During the workshop, we'll use various modules from this wrapper. Each of the module is stand-alone, therefore we can use only the modules that we required rather than running the complete metaWRAP pipeline.
+> During the workshop, we'll use various modules from this wrapper. Each module is stand-alone, therefore we can use only the modules that we required rather than running the complete metaWRAP pipeline.
 
 Firstly, we are going to explore the read_qc module to conduct the quality control and filtering of the metagenomics data.
 
-This module consist of a set of tools that enable the pre-process, trimming, and filtering of
+This module consist of a set of tools that enable the pre-process, trimming, and filtering of metagenomic data. For this, the workflow employs FastQC, TrimGalore, and BMTagger.
 
 ### Running metawrap read_qc
 
