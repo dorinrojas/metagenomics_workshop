@@ -175,9 +175,31 @@ Note that the job number will chance. You can also check that the job is running
               1935  parallel  fasterq dorian.r  R       0:02      1 cn009
 ```
 
+You will see two files in you working directory corresponding to the `.o` and `.e` output documents from the slurm job. These files are important to check in case you job had an issue while running the job.
+
 This might take a file while running (around 15 to 20 minutes per job). So you can either take a break or explore and ask questions regarding the other flags of the tool. Pay attention to the email to set in the slurm file to check whereas your job has ended or failed.
 
 This is probably the simplest command we'll run throughout the workshop, but don't be scared! You'll see the first one is also the hardest :)
+
+After the job had ended, you can check the `1-data` directory and see four files corresponding to the paired end files of each accessions. Once you revise the tool worked correctly, you can delete the log files (`.o`, `.e`). However, I personally recommend to make a new directory to store this documents. They might come handy at some point throught the pipeline.
+
+```console
+[dorian.rojas@accessnode test]$ ll 1-data/
+total 10968184
+-rw-rw-r-- 1 dorian.rojas dorian.rojas 2917900668 dic 17 13:48 SRR8555091_1.fastq
+-rw-rw-r-- 1 dorian.rojas dorian.rojas 2917455268 dic 17 13:48 SRR8555091_2.fastq
+-rw-rw-r-- 1 dorian.rojas dorian.rojas 2698077902 dic  6 12:02 SRR9988196_1.fastq
+-rw-rw-r-- 1 dorian.rojas dorian.rojas 2697976540 dic  6 12:02 SRR9988196_2.fastq
+[dorian.rojas@accessnode test]$ mkdir 00-logs
+[dorian.rojas@accessnode test]$ mv zz-read_qc-193* 00-logs/
+[dorian.rojas@accessnode test]$ ls 00-logs/
+zz-read_qc-1934.e  zz-read_qc-1934.o  zz-read_qc-1935.e  zz-read_qc-1935.o
+```
+
+This would complete the first part of this class. Next we will explore the quality control and filtering of the recently downloaded data.
+
+## Quality control and filtering of metagenomics data (metaWRAP read_qc module)
+
 
 ## Task solutions
 
