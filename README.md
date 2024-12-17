@@ -34,4 +34,8 @@ Ecological characterization of the microbiome|- Estimation of relative abundance
 
 [Class 1: Basic Unix shell Bash commands and workshop methodology](docs/Class_1/Class1.md)
 
+[Class 2.1: Quality control and filtering of metagenomics sequences](docs/Class_2/Class2_1.md)
+
+[Class 2.2: Metagenome-assembled genomes assembly, binning, refinement, reassemble](docs/Class_2/Class2_2.md)
+
 Additional material will be provided through the [Google drive](https://drive.google.com/drive/folders/1GJg8bVriWXvrmJ6LAp1R9m4SdZDVOEXl?usp=sharing).
