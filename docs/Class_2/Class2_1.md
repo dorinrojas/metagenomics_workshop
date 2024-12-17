@@ -19,7 +19,7 @@ The first step towards starting the analysis is downloading the data. For our wo
 
 > If you were to use the analysis under your own data, normally after sequecing you'll have to upload the read sequences to the cluster. For this, the command `scp` we mentioned in the previou class would be required. If you have any doubt regarding the utilization of this command, ask your instructor.
 
-`fasterq-dump` is a optimized version of an older tool called `fastq-dump`. This allosw to extract data in .fastq or .fasta format frm SRA accessions of the NCBI. Althought this tool is a successor, the options are different from the prior software. Hence, it is not a replacement and both tools can still be used. Particularly `fasterq-dump` is faster and easier to use than `fastq-dump`.
+`fasterq-dump` is a optimized version of an older tool called `fastq-dump` (you saw an example of how to run this tool in last class). This allosw to extract data in .fastq or .fasta format frm SRA accessions of the NCBI. Althought this tool is a successor, the options are different from the prior software. Hence, it is not a replacement and both tools can still be used. Particularly `fasterq-dump` is faster and easier to use than `fastq-dump`.
 
 This tool is part of the [sra-toolkit](https://github.com/ncbi/sra-tools). Therefore, in order to be used the toolkit must be installed.
 

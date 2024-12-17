@@ -267,7 +267,7 @@ cd /home/dorian.rojas/
 CTN_PATH=/opt/ohpc/pub/containers/BIO/
 ```
 
-After this comes the command to run that specific job. Let's take the example of a template for the `fastq-dump` tool we will use during this workshop. This would be the complete slurm file.
+After this comes the command to run that specific job. Let's take the example of a template for `fastq-dump` tool. This tool allows to download data using SRA accession from the NCBI. This would be the complete slurm file.
 
 ```console
 #!/bin/bash
@@ -312,7 +312,7 @@ For this we use three files: a `accessions.txt`, a `batch.sh`, and a `.slurm` fi
 ```console
 [dorian.rojas@accessnode test]$ cat accessions.txt
 SRR9988196
-SRR8555090
+SRR8555091
 
 [dorian.rojas@accessnode test]$ cat batch.sh
 #!/bin/bash
