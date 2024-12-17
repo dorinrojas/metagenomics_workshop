@@ -1,4 +1,4 @@
-# Class 2.1: Metagenome-assembled genomes assembly, binning, refinement, reassemble
+# Class 2.2: Metagenome-assembled genomes assembly, binning, refinement, reassemble
 
 - - - -
 

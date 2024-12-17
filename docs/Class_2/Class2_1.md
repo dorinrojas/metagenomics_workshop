@@ -200,7 +200,6 @@ This would complete the first part of this class. Next we will explore the quali
 
 ## Quality control and filtering of metagenomics data (metaWRAP read_qc module)
 
-
 ## Task solutions
 
 **accession.txt file:**
