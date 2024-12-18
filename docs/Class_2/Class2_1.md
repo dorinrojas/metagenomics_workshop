@@ -368,7 +368,7 @@ Now, let's open each of the files and analyze them as html.
 
 **accession.txt file:**
 
-```console
+```ps
 [dorian.rojas@accessnode test]$ cat accessions.txt
 SRR9988196
 SRR8555091
@@ -376,7 +376,7 @@ SRR8555091
 
 **batch.sh file:**
 
-```console
+```vim
 #!/bin/bash
 
 sample1="$(sed -n '1p' accessions.txt)"
