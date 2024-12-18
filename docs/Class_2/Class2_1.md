@@ -210,7 +210,11 @@ The ASCII displays a great variety of characters representing numbers from one t
 
 ![alt text](qscores_image.gif)
 
+Quality score can vary widely depending on the sequencing technique. Long reads (e.g. PacBio, Nanopore) tend to present lower qualities than short reads (e.g. Illumina). In addition, it is common to see decresing qualities in the latest bases due to polymerase exhaustation. It is agree high quality bases have a Q score of >30, medium quality is between Q30 and Q20, and low quality scores are below Q20. 
 
+Qualities can be presented in different ways to the viewer. However, the most common way is boxplots similar to those found in the FastQC results. For instance, in this example
+
+![alt text](qscore_example.png)
 
 ### MetaWRAP read_qc module
 
