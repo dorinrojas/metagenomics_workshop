@@ -276,7 +276,7 @@ Usage: metaWRAP [module]
 
 This shows all the modules of metawrap. We are currently interested in running the `read_qc` module. Hence, the `-h` command must be used specifically for that module.
 
-```bash
+```vim
 (metawrap-env) [dorian.rojas@accessnode test]$ metawrap read_qc -h
 metawrap read_qc -h
 
