@@ -344,7 +344,7 @@ Note the usage of the wildcard `*`. This command indicates `scp` to copy all the
 
 It is throughly important that you have analyzed what you are downloading from your the cluster. The all output from metaWRAP have the same name regardless of the sample (or at least for the `post-QC_report`). Hence, you have to download each of the samples separately to avoid overwritting the files. I recommend you download one sample, create a directory in your desktop with the name of that sample to move the reports, and proceed to download the next sample. So, the end product in you desktop is something similar to this:
 
-```console
+```bash
 C:\Users\rojas\OneDrive\Desktop\docs_curso\read_qc>tree /f
 Folder PATH listing for volume Windows
 Volume serial number is 90F6-E25D
