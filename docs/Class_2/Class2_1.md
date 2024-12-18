@@ -210,9 +210,9 @@ The ASCII displays a great variety of characters representing numbers from one t
 
 ![alt text](qscores_image.gif)
 
-Quality score can vary widely depending on the sequencing technique. Long reads (e.g. PacBio, Nanopore) tend to present lower qualities than short reads (e.g. Illumina). In addition, it is common to see decresing qualities in the latest bases due to polymerase exhaustation. It is agree high quality bases have a Q score of >30, medium quality is between Q30 and Q20, and low quality scores are below Q20. 
+Quality score can vary widely depending on the sequencing technique. Long reads (e.g. PacBio, Nanopore) tend to present lower qualities than short reads (e.g. Illumina). In addition, it is common to see decresing qualities in the latest bases due to polymerase exhaustation. It is agree high quality bases have a Q score of >30, medium quality is between Q30 and Q20, and low quality scores are below Q20.
 
-Qualities can be presented in different ways to the viewer. However, the most common way is boxplots similar to those found in the FastQC results. For instance, in this example
+Qualities can be presented in different ways to the viewer. However, the most common way is boxplots similar to those found in the FastQC results. For instance, in this example all bases present a very high quality with a mean average >35. Those bases with lesser quality at the beganing of the read might be related to the presence of adapters, which are frequently removed during trimming and filtering.
 
 ![alt text](qscore_example.png)
 
@@ -317,7 +317,52 @@ sbatch read_qc.slurm $sample2
 
 ### Quality control interpretation
 
-[]
+The outputs from read_qc module are four files and two directories with the FastQC reports pre- and post-trimming, in each sample directory created in the command.
+
+```console
+(metawrap-env) [dorian.rojas@accessnode 2-read_qc]$ ls -F *
+SRR8555091:
+final_pure_reads_1.fastq  host_reads_1.fastq  post-QC_report/
+final_pure_reads_2.fastq  host_reads_2.fastq  pre-QC_report/
+
+SRR9988196:
+final_pure_reads_1.fastq  host_reads_1.fastq  post-QC_report/
+final_pure_reads_2.fastq  host_reads_2.fastq  pre-QC_report/
+```
+
+The `final_pure_reads_?.fastq` files are the final filtered reads, meanwhile `host_reads_?.fastq` are the human sequences remove by the BMTagger. These formers are the ones we are going to continue using throughout the pipeline.
+
+Although the trimmed files are ready to continue their analysis, it is highly important to check the FastQC reports. This is mostly performed in order to check the correct funtioning of the filtering process and ensuring the quantity of the sequences remove does not significantly affect the sequencing depth. Considering the reports are `.html` files, they must be download into our computer to visualize them. For this, using the command `scp` is essential.
+
+The `scp` command must be run in our own terminal, not inside the computational cluster. Its required arguments are the location, path to the file you are downloading, and where in your computer they should be save. For instance, considering my location `dorian.rojas@172.16.24.2`, the path `/home/dorian.rojas/test/2-read_qc/SRR8555091/*/*.html`, and the destination my desktop folder in my computer, the command in my windowns terminal is:
+
+```console 
+C:\Users\rojas\OneDrive\Desktop> scp dorian.rojas@172.16.24.2:/home/dorian.rojas/test/2-read_qc/SRR8555091/*/*.html .
+```
+
+Note the usage of the wildcard `*`. This command indicates `scp` to copy all the `.html` files found in all the directories of the `home/dorian.rojas/test/2-read_qc/SRR8555091` path. To facilitate the command, I moved within my terminal to the my computer desktop and indicate through a period `.` the destionation. In the terminal, the `.` is a 'secret' folder that represents the current directory. This is similar as how the directory `..` means the parent folder.
+
+It is throughly important that you have analyzed what you are downloading from your the cluster. The all output from metaWRAP have the same name regardless of the sample (or at least for the `post-QC_report`). Hence, you have to download each of the samples separately to avoid overwritting the files. I recommend you download one sample, create a directory in your desktop with the name of that sample to move the reports, and proceed to download the next sample. So, the end product in you desktop is something similar to this:
+
+```console
+C:\Users\rojas\OneDrive\Desktop\docs_curso\read_qc>tree /f
+Folder PATH listing for volume Windows
+Volume serial number is 90F6-E25D
+C:.
+├───SRR8555091
+│       final_pure_reads_1_fastqc.html
+│       final_pure_reads_2_fastqc.html
+│       SRR8555091_1_fastqc.html
+│       SRR8555091_2_fastqc.html
+│
+└───SRR9988196
+        final_pure_reads_1_fastqc.html
+        final_pure_reads_2_fastqc.html
+        SRR9988196_1_fastqc.html
+        SRR9988196_2_fastqc.html
+```
+
+Now, let's open each of the files and analyze them as html.
 
 ## Task solutions
 
