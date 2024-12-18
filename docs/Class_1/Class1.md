@@ -4,58 +4,60 @@
 
 ## Using Unix through the terminal
 
-Unix shell is a command-line interface (CLI) platform and scripting language initially developed to construct other softwares. For example, the iOS softwares is written in a derivated of Unix language. This is systems is efficient is an universal operating systems used in many computers. In addition, it allows to run several softwares and small programs.
+Unix shell is a command-line interface (CLI) platform and scripting language initially developed to construct other softwares. For example, the iOS software is written in a derivated of Unix language. This is an efficient universal operating system used in many computers as it allows to run several softwares and small programs.
 
-There are different types of Unix shells. However, the most popular among computers is Bash (Bourne Again SHell).Our computational cluster (and most of them) is based on Bash. Therefore, it is important to understand the main commands of the CLI.
+There are different types of Unix shells. However, the most popular among computers is Bash (Bourne Again SHell). Computational clusters are based on Bash. Therefore, it is important to understand the main commands of the CLI.
 
-We are used to interact with computer in our daily life through a graphical user interface (GUI). Here, we provide instructions by clicking in folders and other directions from the menu that are learned intuitively. The shell lacks the presentation of the directories and works as a command line.
+We are used to interact with computers in our daily life through a graphical user interface (GUI). Here, we provide instructions by clicking in folders and other directions that are learned intuitively. Contrary to this, the shell lacks the a visual presentation and works as a command line, which might come as a shock for new users.
 
 ### Accessing the Unix shell
 
-The shell is a more efficient way to communicate and work with a computer. It can be accessed through the "terminal" (also called "Command prompt"). Once you have opened a terminal, it initiates with the `$` symbol. This called a prompt and it is an indicator of the shell waiting for an input (the same reason it is also called "Command prompt"). Prior the dollar symbol, it is common to found the username of your computer.
+The shell is a more efficient way to communicate and work with a computer. It can be accessed through the 'terminal' (also called 'Command prompt'). A terminal initiates with the `$` character. This is called a prompt and is an indicator of the shell waiting for an input (the same reason it is also called 'Command prompt'). Prior to the dollar symbol, it is common to find the username of your computer.
 
-```console
+```bash
 [dorian.rojas@accessnode test]$
 ```
 
-Contratry to Apple computers, Windows is built under a different system; thus, the commands we are going to explore do not work in the windowns shell. In this case, the first line of the shell should look something like this:
+Contratry to Apple computers, Windows is built under a different system; thus, the commands we are going to explore do not work in the windowns shell. However, the start of a Windows shell looks similar to this:
 
-```console
+```ps
 C:\Users\rojas>
 ```
 
-In order to be working on the same systems, we are going to enter the computational cluster through a SSH client. This client is a sofware programs that enables us to connect to remote computers (in this case, our cluster) by applying a secure shell protocol. Most computers have the SSH client installed within the terminal. However, in some cases, Windows users have to use and external terminal.
+In order to be working on the same operating system, we are going to enter the computational cluster through a SSH client. This is a sofware that enables the connection to remote computers (in this case, our cluster) by applying a secure shell protocol. Most computers have the SSH client installed within the terminal. However, in some cases, Windows users have to use and external client.
 
-> For those using Windows without the SSH client installed, we recommend installing the MobaXterm server. Please follow the instruction for downloading the software [here](https://mobaxterm.mobatek.net/download.html)
+> If the SSH client is not installed, we recommend installing the MobaXterm server. Please follow the instructions for downloading the software [here](https://mobaxterm.mobatek.net/download.html).
 
-Let's connect to the cluster. For this, open the terminal and input the following command:
+To connect to the cluster, open a terminal and input the following command:
 
-```console
+```ps
 ssh [user]@172.16.24.2
 ```
 
-`[user]` must be change for the cluster username you were provided with. For example, my command would be:
+`[user]` must be changed for the username you were provided with. For example:
 
-```console
+```ps
 ssh dorian.rojas@172.16.24.2
 ```
 
-After that, the terminal should ask for your password. Input it into the blank space. As a precaution, the terminal is not going to show what you are writting in the password. Following this, enter and you should see the welcome message of the HPC cluster of the University of Costa Rica
+In order to access the remote computer, your confidential password is required. As a precaution, the terminal does not show the password input. Once the password is correctly typed, the welcome message of the HPC cluster of the University of Costa Rica appears in screen.
 
-```console
+```bash
 Register this system with Red Hat Insights: insights-client --register
 Create an account or view all your systems at https://red.ht/insights-dashboard
 Last login: __
 [dorian.rojas@accessnode ~]$
 ```
 
+You can open several terminal at the same time. Most people are used to work with two or three simultaneously.
+
 #### Bash command composition
 
-A shell command is composed by the prompt (`$`), the command (`ls`), options (`-h`), and arguments (what the indications operates on; for instance, a directory or a file). Moreover, options that do not require require arguments can be placed together. In this regard, `ls -lh` holds two flags, the `-l` for listing `-h` for transforming data into human-readble. Here, `ls -l -h` is synonyms of `ls -lh`.
+A shell input is composed by the prompt (`$`), the command (e.g. `ls`), flags (or options, e.g.`-h`), and arguments (indications, e.g. a directory, file). Moreover, flags do not necessarily require arguments. These can be placed together in a single `-` (dash). For instance, `ls -lh` holds two flags, the `-l` for listing `-h` for transforming data into human-readble. Here, `ls -l -h` is a synonym of `ls -lh`.
 
-### Basic Unix commands
+### Basic Bash commands
 
-Now let's explore some of the main Unix commands and try some exercises to get comfortable with the "black screen". These are the main system commands. Remember that the Unix command line is case sensitive.
+Here, some main Bash commands and exercises to get comfortable with the 'black screen' are presented. Remember, the Unix command line is case sensitive.
 
 Command|Function|Command|Function
 -------|--------|-------|--------
@@ -68,22 +70,22 @@ Command|Function|Command|Function
 `nano <file>`|Creates an empty file|`sbatch <file.slurm>`|Runs .slurm file
 `squeue`|Shows running jobs|`scancel <jobID>`|Cancels job
 
-Give a try to some of the basic commands. Input these in your console:
+Try some commands, input these in your console:
 
-```console
+```bash
 [dorian.rojas@accessnode curso]$ ls
 [dorian.rojas@accessnode curso]$ mkdir test
 [dorian.rojas@accessnode curso]$ cd test/
 [dorian.rojas@accessnode test]$
 ```
 
-Notice how the `ls` command does not output anything? It is because your account is empty at the moment. Subsequently you create a new directory named 'test' (`code`) and the move to that directory (`cd test`). See the name of prior the $ changes? it indicated the directory in which you are currently. To obtain the full path to the current directory use `pwd`.
+The `ls` command does not output anything. This is because the account or folder is empty. The following command creates a new directory named 'test' (`code`) and, subsequently, it moves to that directory (`cd test`). Note the change in the name prior to the $, it indicates the current directory. To obtain the full path, use `pwd`.
 
-```console
+```bash
 [dorian.rojas@accessnode test]$ pwd
 /home/dorian.rojas/curso/test
 ```
-
+//// here is where the proofreading was left
 > As mentioned above, the shell terminal is case sensitive and takes in consideration the spaces. Although in a GUI, we are use to use spaces, periods, among other special characters. Is it recommended that when working in Bash files and directories:
     1. Don't have spaces. This will complete change the meaning of the command.
     2. Don't start with - (dash).
@@ -92,7 +94,7 @@ Notice how the `ls` command does not output anything? It is because your account
 
 Most command have a menu for the flags (or options) that can be used with them (e.g. `-r`). In order to see many you have to use the flag `--help` or `-h`.
 
-```console
+```bash
 [dorian.rojas@accessnode test]$ ls --help
 Usage: ls [OPTION]... [FILE]...
 List information about the FILEs (the current directory by default).
@@ -110,7 +112,7 @@ Mandatory arguments to long options are mandatory for short options too.
                                modification of file status information);
                                with -l: show ctime and sort by name;
                                otherwise: sort by ctime, newest first
-[help]
+[...]
 ```
 
 This command is essential for most tools, as it would allow to have an overview of the usage and requirements of the software prior to running. In bioinformatics, when we are trying out a new tools, this is very often used to access the menu on "How to run".
@@ -119,7 +121,7 @@ This command is essential for most tools, as it would allow to have an overview 
 
 Other relevant command is the remove command (`rm`). In Unix shell, deleting is forever and there is no way to recover a removed file or directory. An interesting approach to have a double confirmation when deleting is running the rm command as follow:
 
-```console
+```bash
 [dorian.rojas@accessnode curso]$ rm -i note.txt
 rm: remove regular file 'note.txt'? n
 [dorian.rojas@accessnode curso]$ rm -ir test/
@@ -145,7 +147,7 @@ Explore some other basic commands individually by completing the following task.
 
 To continue, we will explore the use of text files commands, which are relevant to work with slurm programs. There are a lot of text editor for use (e.g. vi, vim, nano, sublime). We'll use 'nano', which is newer, simpler, and easier than other editor like vim. Let's open a nano file:
 
-```console
+```bash
 nano note.txt
 ```
 
@@ -155,7 +157,7 @@ Now, open again a nano file and write some line with your name multiple times an
 
 In summary, to save a nano document with modification the command `ctrl + x + y + enter` is required. Check that the document was saved in your current directory with `ls`. You can also save the file while writing using `ctrl + o` and then exit.
 
-```console
+```bash
 [dorian.rojas@accessnode curso]$ nano note.txt
 [dorian.rojas@accessnode curso]$ ls
 note.txt
@@ -204,7 +206,7 @@ Feel free to try and run these commands yourself. Be careful and ask question pe
 
 Finally, Unix shell have the chance to use wildcard to select multiple files at the same times. The two most important wildcards are `*` and `?`. The asterik `*` represent zero or more characters, whereas `?` represents exactly one character. For a better understading, set a directory with the files `methane.txt` and `ethane.txt`. For instance, `*ethane.txt` would indicate both files, while `?ethane.txt` only `methane.txt`.
 
-```console
+```bash
 [dorian.rojas@accessnode curso]$ ls *ethane.txt
 ethane.txt  methane.txt
 [dorian.rojas@accessnode curso]$ ls ?ethane.txt
@@ -219,7 +221,7 @@ Wildcards are relevant as they help to manage large set of data. For example, if
 
 For this workshop we will be working with slurm files. Slurm is a workload manager that enables the correct organization of commands and jobs running in the computational cluster. Slurm files are defined with `.slurm` extentions. They are normal text files with a characteristic header
 
-```console
+```vim
 #!/bin/bash
 #SBATCH --partition=parallel
 #SBATCH --account=parallel-24h
@@ -235,7 +237,7 @@ For this workshop we will be working with slurm files. Slurm is a workload manag
 
 Let's break it down for a better understanding. The first line `#!/bin/bash` is the command that allows the computer to recognize the document as a .slurm file. The folliwing lines `#SBATCH --partition=parallel` and `#SBATCH --account=parallel-24h` represent cluster/specific configurations. It is important to remark that all computational cluster are organized different. Therefore, the introduction to the cluster is essential for its correct usage.
 
-```console
+```vim
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=64
@@ -243,7 +245,7 @@ Let's break it down for a better understanding. The first line `#!/bin/bash` is 
 
 Represent the maximum time the job is allow to run for, the number of computation nodes to use, and the number of threats.
 
-```console
+```vim
 #SBATCH --job-name="fastq"
 #SBATCH -o zz-%x-%j.o
 #SBATCH -e zz-%x-%j.e
@@ -251,7 +253,7 @@ Represent the maximum time the job is allow to run for, the number of computatio
 
 These are the job name and the name of the output files. Due to personal preferences, I separate the error file (.e) and output file (.o). So, if there is an error with the command, it can be easily accessed.
 
-```console
+```vim
 #SBATCH --mail-user=dorian.rojas@ucr.ac.cr
 #SBATCH --mail-type=END,FAIL
 ```
@@ -262,14 +264,14 @@ Note that most of these are personal configurations, the slurm file have a lot o
 
 Following in the .slurm file, it's a change directory to working directory (`cd <path>`) and the calling of an object contaning the containers path (`CTN_PATH`).
 
-```console
+```vim
 cd /home/dorian.rojas/
 CTN_PATH=/opt/ohpc/pub/containers/BIO/
 ```
 
 After this comes the command to run that specific job. Let's take the example of a template for `fastq-dump` tool. This tool allows to download data using SRA accession from the NCBI. This would be the complete slurm file.
 
-```console
+```vim
 #!/bin/bash
 #SBATCH --partition=parallel
 #SBATCH --account=parallel-24h
@@ -309,7 +311,7 @@ During this workshop we will work with two samples to ensure the optimization of
 
 For this we use three files: a `accessions.txt`, a `batch.sh`, and a `.slurm` file. The first file contains only the sample's accession in separate lines. The second file extract the accession from the first file using a `sed` command and indicates the `.slurm` to run using that accession.
 
-```console
+```bash
 [dorian.rojas@accessnode test]$ cat accessions.txt
 SRR9988196
 SRR8555091
@@ -328,7 +330,7 @@ Finally, the slurm is the job we want to run. In order to use the accession sent
 
 Additionally, the `batch.sh` file indicates to the _for loop_ to use the sample accessions as sample name (`sbatch read_qc.slurm $sample1`). Therefore, in the `.slurm` file, the command `for id in $@; do` indicates to run the code for the number of ids (`id`, an object) present in `$sample1` (`$@`). In Bash, to call the object we are require to set the prompt prior the name (e.g. `$id`, `$CTN_PATH`).
 
-```console
+```vim
 for id in $@; do
 
 echo "Downloading " $id
@@ -343,14 +345,14 @@ done
 
 It is also important to mentione that enclosing the object in braces adds the following string to the object name in the code lecture. For example:
 
-```console
+```bash
 id = sample1
 ${id}.fastq = sample1.fastq
 ```
 
 This will be handy in following codes when extensions and output names are required. See below an example using the quality control module of metawrap (`metawrap read_qc`). Here the input requires the extension of each paired reads file (`${sample}_1.fastq`,`${sample}_2.fastq`).
 
-```console
+```vim
 for id in $@; do
 
 echo "Working on " $id
@@ -376,31 +378,31 @@ Feel free to ask any questions regarding this methodology. It is essential to un
 
 1. Go back to the parent directory
 
-    ```console
+    ```bash
     cd ..
     ```
 
 2. Print the complete path where you are located
 
-    ```console
+    ```bash
     pwd
     ```
 
 3. Change the name of the directory to 'metagenomics'
 
-    ```console
+    ```bash
     mv test metagenomics
     ```
 
 4. Delete the 'metagenomics' directory
 
-    ```console
+    ```bash
     rm -r metagenomics
     ```
 
 5. List the current running jobs
 
-    ```console
+    ```bash
     squeue
     ```
 
@@ -408,54 +410,54 @@ Feel free to ask any questions regarding this methodology. It is essential to un
 
 1. Reopen the file and write 10 lines of different cities
 
-    ```console
+    ```bash
     nano note.txt
     ```
 
 2. Print the complete document
 
-    ```console
+    ```bash
     cat note.txt
     ```
 
 3. Print the last lines
 
-    ```console
+    ```bash
     tail note.txt
     ```
 
 4. Print the first lines
 
-    ```console
+    ```bash
     head note.txt
     ```
 
 5. Try printing the lines little by little
 
-    ```console
+    ```bash
     more note.txt
     ```
 
 6. Create a new document with the 10 different names
 
-    ```console
+    ```bash
     nano names.txt
     ```
 
 7. Concatenate the cities document with the names document
 
-    ```console
+    ```bash
     cat note.txt names.txt > concat.txt
     ```
 
 8. Print only one line corresponding to one of the names in the document
 
-    ```console
+    ```bash
     grep "dorian" concat.txt
     ```
 
 9. Count the number of lines in the concatenated document
 
-    ```console
+    ```bash
     wc -l concat.txt
     ```
