@@ -202,6 +202,12 @@ This would complete the first part of this class. Next we will explore the quali
 
 ## Quality control and filtering of metagenomics data (metaWRAP read_qc module)
 
+Sequencing reads are commonly found as `.fastq` files, which contain the information regarding the basecalling quality score. This quality is depicted in ASCII format developed for Sanger sequencing technologies. The quality (Q) is the probability of an incorrect basecalling, mathematically represented as follow:
+
+$Q = -10log10(e)$
+
+### MetaWRAP read_qc module
+
 Great part of the pipeline is performed throught the tool [metaWRAP](https://github.com/bxlab/metaWRAP). This is a metagenomic wrapper made as a easy-to-use suite for analysis. This means it alone does not perform any analysis but it comprises several tools (which will be explained) and used them to perform the job of interest. Hence, metaWRAP basically writes a command that runs all the other tools within its environment.
 
 There a vast variety of way to perform metagenomics analysis. For instance, you could use individual tools and different flags and parameters. However, metaWRAP servers as an parameterizer that allows a greater reproducibility. As the wrapper uses general databases and tools, it favors the analysis of different types of microbiomes (e.g. gut, water, soil) as demonstrated in the [benchmark paper](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0541-1).
@@ -212,7 +218,96 @@ Firstly, we are going to explore the read_qc module to conduct the quality contr
 
 This module consist of a set of tools that enable the pre-process, trimming, and filtering of metagenomic data. For this, the workflow employs FastQC, TrimGalore, and BMTagger.
 
+[FatsQC](https://github.com/s-andrews/FastQC) is a program that spots potential problems in sequencing datasets. It can analyze multiple files in `.fastq`, `.sam`, or `.bam` format and provides a quick overview the quality metrics. This software works on any kind of data (e.g. small reads, long reads, RNA sequecing); however, it is mostly optimized for sequencing data from Illumina Technologies. Interestingly, this tool was developed to work offline in an application that runs on java and as a software for computational clusters. The main result of FastQC is the `.html` file that summarises the quality metrics. It is important to remark that this tools only checks the quality of the reads, and does not performs any modification. [Here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is the webpage in which FastQC was published.
+
+[TrimGalore](https://github.com/FelixKrueger/TrimGalore) is a wrapper tool that involves [Cutadapt](https://github.com/marcelm/cutadapt) and FastQC to perform trimming of `.fastq` files. This trimming removes low quality bases/reads, adapters, primers, short reads, among other undesirable features that could be present through Cutadapt. For this, an initial trimming of low quality bases in the 3' end is conducted prior the adapter removal. Adapters are autodetected based on one million sequences of the first file, looking for the 12bp or 13bp standard adapters (from Illumina, Small RNA Nextera). If adapter can't be autodetected, `--illumina` is used as default, and if there is a tie between Nextera and Small RNA `--nextera` is default. However, adapter sequences can also be provided in the standalone wrapper. Finally, TrimGalore removes short sequences (default: <20bp) that might result from the trimming. In addition, it performs a quality check of the data using FastQC.  
+
+[BMTagger](https://bioconda.github.io/recipes/bmtagger/README.html) (Best Match Tagger) is a tool that removes the human reads (contamination) from the metagenomic datatsets. This software discriminates based on the provided index file created with bmtools (which might be a [little complex to create](https://www.hmpdacc.org/doc/HumanSequenceRemoval_SOP.pdf)). Therefore, it avoids the time-consuming and computational-demanding aligments other tools require. In the case of metaWRAP, this wappers uses BMTagger with the human genome reference hg38 index already included. For this, this tool compares the query through 18mers to the human genome. However, if the comparison fails, an aligment is performed to removel the sequences with up to two errors.
+
 ### Running metawrap read_qc
+
+Due to the installation process, metaWRAP runs a little different. It does not use a singularity container but a miniforge3 environment. This environment must be activated in both your terminal and the slurm file you are going to use. In order to activate it this command must be run and written right after the working directory is set in the `.slurm` file.
+
+```console
+. /home/dorian.rojas/bin/miniforge3/bin/activate metawrap-env
+
+[dorian.rojas@accessnode test]$ . /home/dorian.rojas/bin/miniforge3/bin/activate metawrap-env
+(metawrap-env) [dorian.rojas@accessnode test]$
+```
+
+When you run it in the terminal, the name of the environment `metawrap-env` appears in front of your username. This indicates the env is activated and metaWRAP can be call normally in the terminal. In the slurm file, the environment is activated within the job and metaWRAP will work correctly.
+
+The first step prior writting the command is understading how the module works. This is what we have already explore in the previous section. So, now we need to call the `-h` command on metaWRAP.
+
+```console
+(metawrap-env) [dorian.rojas@accessnode test]$ metawrap -h
+
+MetaWRAP v=1.3.2
+Usage: metaWRAP [module]
+
+        Modules:
+        read_qc         Raw read QC module (read trimming and contamination removal)
+        assembly        Assembly module (metagenomic assembly)
+        kraken          KRAKEN module (taxonomy annotation of reads and assemblies)
+        kraken2         KRAKEN2 module (taxonomy annotation of reads and assemblies)
+        blobology       Blobology module (GC vs Abund plots of contigs and bins)
+
+        binning         Binning module (metabat, maxbin, or concoct)
+        bin_refinement  Refinement of bins from binning module
+        reassemble_bins Reassemble bins using metagenomic reads
+        quant_bins      Quantify the abundance of each bin across samples
+        classify_bins   Assign taxonomy to genomic bins
+        annotate_bins   Functional annotation of draft genomes
+
+        --help | -h             show this help message
+        --version | -v  show metaWRAP version
+        --show-config   show where the metawrap configuration files are stored
+```
+
+This shows all the modules of metawrap. We are currently interested in running the `read_qc` module. Hence, the `-h` command must be used specifically for that module.
+
+```console
+(metawrap-env) [dorian.rojas@accessnode test]$ metawrap read_qc -h
+metawrap read_qc -h
+
+Usage: metaWRAP read_qc [options] -1 reads_1.fastq -2 reads_2.fastq -o output_dir
+Note: the read files have to be named in the name_1.fastq/name_2.fastq convention.
+Options:
+
+        -1 STR          forward fastq reads
+        -2 STR          reverse fastq reads
+        -o STR          output directory
+        -t INT          number of threads (default=1)
+        -x STR          prefix of host index in bmtagger database folder (default=hg38)
+
+        --skip-bmtagger         dont remove human sequences with bmtagger
+        --skip-trimming         dont trim sequences with trimgalore
+        --skip-pre-qc-report    dont make FastQC report of input sequences
+        --skip-post-qc-report   dont make FastQC report of final sequences
+
+
+real    0m0,015s
+user    0m0,005s
+sys     0m0,008s
+```
+
+This now displays the usage of this module. Go ahead and write the `read_qc.slurm` file taking in consideration what's here read about the quality control. My template can be found at the end of this page.
+
+Before running the `batch.sh` file, remember to change the name of the `.slurm` after the `sbatch` command. Otherwise, you will be sending the `fasterq-dump.slurm` job again :)
+
+```console
+#!/bin/bash
+
+sample1="$(sed -n '1p' accessions.txt)"
+sample2="$(sed -n '2p' accessions.txt)"
+
+sbatch read_qc.slurm $sample1
+sbatch read_qc.slurm $sample2
+```
+
+### Quality control interpretation
+
+[]
 
 ## Task solutions
 
@@ -261,6 +356,43 @@ for id in $@; do
 echo "Downloading " $id
 $CTN_PATH/sra-tools-3.1.1.sif fasterq-dump -O ./1-data $id
 echo $id " downloaded"
+
+done
+
+date
+time
+```
+
+**read_qc.slurm:**
+
+```console
+#!/bin/bash
+#SBATCH --partition=parallel
+#SBATCH --account=parallel-24h
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=64
+#SBATCH --job-name="read_qc"
+#SBATCH -o zz-%x-%j.o
+#SBATCH -e zz-%x-%j.e
+#SBATCH --mail-user=dorian.rojas@ucr.ac.cr
+#SBATCH --mail-type=END,FAIL
+
+cd /home/dorian.rojas/test
+
+. ~/bin/miniforge3/bin/activate metawrap-env
+
+for sample in $@; do
+
+echo "Working on " $sample
+
+mkdir 2-read_qc/$sample
+
+metawrap read_qc -1 1-data/${sample}_1.fastq \
+        -2 1-data/${sample}_2.fastq \
+        -t 64 -o 2-read_qc/$sample
+
+echo $sample " done"
 
 done
 
