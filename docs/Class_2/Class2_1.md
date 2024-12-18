@@ -202,9 +202,15 @@ This would complete the first part of this class. Next we will explore the quali
 
 ## Quality control and filtering of metagenomics data (metaWRAP read_qc module)
 
-Sequencing reads are commonly found as `.fastq` files, which contain the information regarding the basecalling quality score. This quality is depicted in ASCII format developed for Sanger sequencing technologies. The quality (Q) is the probability of an incorrect basecalling, mathematically represented as follow:
+Sequencing reads are commonly found as `.fastq` files, which contain the information regarding the basecalling quality score. This quality is named Phred and it is depicted in ASCII format developed for Sanger sequencing technologies. The quality (Q) is the probability (P) of an incorrect basecalling, mathematically represented as follow:
 
-$Q = -10log_{10}(e)$
+$Q = -10 log_{10}(P)$
+
+The ASCII displays a great variety of characters representing numbers from one to 42 (for Phred base 33, which is the most common code currently). The quality score is interpreted as a logaritmic expression. Therefore, a Q10 would be 1 error per each 10bp, Q20 means 1 error each 100bp, and so forth.
+
+![alt text](qscores_image.gif)
+
+
 
 ### MetaWRAP read_qc module
 
