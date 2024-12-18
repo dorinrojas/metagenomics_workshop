@@ -204,7 +204,7 @@ This would complete the first part of this class. Next we will explore the quali
 
 Sequencing reads are commonly found as `.fastq` files, which contain the information regarding the basecalling quality score. This quality is depicted in ASCII format developed for Sanger sequencing technologies. The quality (Q) is the probability of an incorrect basecalling, mathematically represented as follow:
 
-$Q = -10log10(e)$
+$Q = -10log_{10}(e)$
 
 ### MetaWRAP read_qc module
 
