@@ -30,7 +30,7 @@ MAGs quality evaluation|- High-, middle-, and low-quality MAGs<br>- Quality, com
 Functional and taxonomic annotation of MAGs|- Taxonomic annotation of MAGs<br>- Identification of metabolic pathwats<br>- Annotation of antibiotic resistance genes|GTDBtk<br>Abricate<br>eggNOG-mapper
 Ecological characterization of the microbiome|- Estimation of relative abundances<br>- Alpha and Beta diversity indexes<br>- Statistical analysis|Bowtie2<br>InStrain<br>R command line (phyloseq, microviz)
 
-### Each class related to coding and analysis is separated into different markdown files.
+### Each class related to coding and analysis is separated into different markdown files
 
 [Class 1: Basic Unix shell Bash commands and workshop methodology](docs/Class_1/Class1.md)
 
