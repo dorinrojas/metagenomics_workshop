@@ -204,15 +204,15 @@ Sequencing reads are commonly found as `.fastq` files. This extension indictaes 
 
 $Q = -10 log_{10}(P)$
 
-The ASCII displays a great variety of characters representing numbers from one to 42 (for Phred base 33, which is the most common code currently). The quality score is interpreted as a logaritmic expression. Therefore, a Q10 would be 1 error per each 10bp, Q20 means 1 error each 100bp, and so forth.
+The ASCII displays a great variety of characters representing numbers from one to 42 (for Phred base 33, which is the most common code currently). The quality score is interpreted as a logaritmic expression. Therefore, a Q10 would be 1 error per each 10bp, Q20 means 1 error each 100bp, and so forth. Image from [USEARCH](https://www.drive5.com/usearch/manual/quality_score.html)
 
-![alt text](qscores_image.gif)
+![QScores values and ASCII format characters](qscores_image.gif)
 
 Quality scores can vary widely depending on the sequencing technique. Long reads (e.g. PacBio, Nanopore) tend to present lower qualities than short reads (e.g. Illumina). In addition, it is common to see decresing qualities in the latest bases due to polymerase exhaustation. It is agreed that high quality bases have a Q score of >30, medium quality is between Q30 and Q20, and low quality scores are below Q20.
 
 Qualities can be presented in different ways. The most common graphs are boxplots similar to those found in `FastQC` results (a tool later explored). For instance, in the image below, all bases present a very high quality with a mean average >35. Those bases with lesser quality at the beganing of reads might be related to the presence of adapters, which are frequently removed during trimming and filtering.
 
-![alt text](qscore_example.png)
+![FastQC report example](qscore_example.png)
 
 Trimming and filtering are often used as synonyms in sequencing data processing. They both refer to the removal of low quality reads, adapters, short sequences, primers, and/or fixing paired-end issues (e.g. data is not correctly paired, one sequence is unpaired). Overall, this allows to enhance the general quality of the sequencing data.
 
