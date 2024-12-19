@@ -14,7 +14,7 @@ The OLC methods is purely based on the aligment of each sequenced reads in an at
 
 De Bruijn Graph or k-mer method is more complex. In this scheme, reads are first chopped into k-mer (short substrings of k length). Using these k-mer, the DBG are constructed. These are directional graph were the vertices represent the k-mers' prefixes and suffixes (k-1 mer) that are conected by edges (the input k-mers). Once the graph is constructed, the Eulerian cycle is determined. Eulerian cycle is defined as the path through the graph that visits every edge once and starts and ends in the same vertix. This allows to reconstruct the genome by following successive edges shifted by one position. DBG came as a solution to previous methods as the Hamiltonian cycle which was harder to solve computationally and inefficient in large graphs. Image from [Compeau et al. 2011](https://www.nature.com/articles/nbt.2023).
 
-![Graphic representation of De Bruijn Graph scheme](DBG.jpg)
+![Graphic representation of De Bruijn Graph scheme](DBG.jpeg)
 
 The length of k-mers is an important parameter in assemblies. Small k-mers require less computational resources and have more posibilities of forming edges (although this might result in ambigous assemblies). However, they do not perform well in genomes or contigs with repetitive sequences. On the other hand, large k-mers fix the repetitive sequences issues and provides a more accurate assembly due to increasing the number of vertices in the graph. Though, finding the overlaps (edges) of these k-mers is complex, and this configuration is computationally demanding.
 
