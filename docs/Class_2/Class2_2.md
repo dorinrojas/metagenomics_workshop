@@ -25,5 +25,3 @@ Specifically for shotgun metagenomic assembly, there are two main approaches: in
 For this workshop, metagenomic samples will be assembled through the De Bruijn Graph technique in a individual assembly approach using the metaWRAP assembly module.
 
 ### MetaWRAP assembly module
-
-[]
