@@ -214,6 +214,8 @@ Qualities can be presented in different ways. The most common graphs are boxplot
 
 ![alt text](qscore_example.png)
 
+Trimming and filtering are often used as synonyms in sequencing data processing. They both refer to the removal of low quality reads, adapters, short sequences, primers, and/or fixing paired-end issues (e.g. data is not correctly paired, one sequence is unpaired). Overall, this allows to enhance the general quality of the sequencing data.
+
 ### MetaWRAP read_qc module
 
 Great part of the pipeline is performed throught the tool [metaWRAP](https://github.com/bxlab/metaWRAP). This is a wrapper made as a easy-to-use suite for metagenomics analysis. This means it alone does not perform any analysis, but it comprises several tools used to perform the jobs of interest. Hence, metaWRAP basically writes a command that runs all the other tools within its environment.
@@ -234,7 +236,7 @@ This module consist of a set of tools that enable the pre-process, trimming, and
 
 ### Running metawrap read_qc
 
-Due to the installation process, metaWRAP runs a little different. It does not use a singularity container, but a miniforge3 environment. This environment must be activated in both the terminal and slurm file you are going to use. In order to activate it this command must be run and written right after the working directory is set in the `.slurm` file.
+Due to the installation process, metaWRAP runs differently. It does not use a singularity container, but a miniforge3 environment. This environment must be activated in both the terminal and slurm file you are going to use. In order to activate it this command must be run and written right after the working directory is set in the `.slurm` file.
 
 ```bash
 . /home/dorian.rojas/bin/miniforge3/bin/activate metawrap-env
