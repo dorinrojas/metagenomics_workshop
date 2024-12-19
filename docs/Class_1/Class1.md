@@ -70,7 +70,7 @@ Command|Function|Command|Function
 `nano <file>`|Creates an empty file|`sbatch <file.slurm>`|Runs .slurm file
 `squeue`|Shows running jobs|`scancel <jobID>`|Cancels job
 
-Try some commands, input these in your console:
+Try some commands, input these in your terminal:
 
 ```bash
 [dorian.rojas@accessnode curso]$ ls
@@ -85,14 +85,14 @@ The `ls` command does not output anything. This is because the account or folder
 [dorian.rojas@accessnode test]$ pwd
 /home/dorian.rojas/curso/test
 ```
-//// here is where the proofreading was left
-> As mentioned above, the shell terminal is case sensitive and takes in consideration the spaces. Although in a GUI, we are use to use spaces, periods, among other special characters. Is it recommended that when working in Bash files and directories:
+
+> As mentioned above, the shell terminal is case sensitive and takes in consideration spaces as well. In a GUI, we name files and folders using spaces, periods, among other special characters. It is recommended that when working in Bash, names:
     1. Don't have spaces. This will complete change the meaning of the command.
     2. Don't start with - (dash).
-    3. Stick to letter and numbers.
+    3. Stick to letters and numbers.
     4. If required, - (dash) or _ (underscore) can be used instead of spaces (e.g. `dorian_rojas` rather than `dorian rojas`).
 
-Most command have a menu for the flags (or options) that can be used with them (e.g. `-r`). In order to see many you have to use the flag `--help` or `-h`.
+Moreover, most commands have a help menu for flags that can be used (e.g. `ls -h`). In order to see all flags, the option `--help` must be indicated after the command.
 
 ```bash
 [dorian.rojas@accessnode test]$ ls --help
@@ -115,11 +115,11 @@ Mandatory arguments to long options are mandatory for short options too.
 [...]
 ```
 
-This command is essential for most tools, as it would allow to have an overview of the usage and requirements of the software prior to running. In bioinformatics, when we are trying out a new tools, this is very often used to access the menu on "How to run".
+When working with new tools this command becomes relevant as it allows to have an overview of the software's usage and requirements. In bioinformatics, displaying the 'how to run' menu is essential.
 
 #### Removing command: careful while deleting files
 
-Other relevant command is the remove command (`rm`). In Unix shell, deleting is forever and there is no way to recover a removed file or directory. An interesting approach to have a double confirmation when deleting is running the rm command as follow:
+Another relevant command is the remove command (`rm`). In Unix shell, deletion of files is permanent and there is no way to recover them after removal. An interesting approach to have a double confirmation when deleting is running `rm` with the flag `-i`.
 
 ```bash
 [dorian.rojas@accessnode curso]$ rm -i note.txt
@@ -131,31 +131,33 @@ note.txt  test/
 [dorian.rojas@accessnode curso]$
 ```
 
-The `-i` option prompts a delete confirmation that has to be answer using `Y` or `N` to delete or cance, respectively. This gives the user a chance to check the files and directories being deleted in order to avoid commiting undesierable removals.
+The `-i` flags prompts a removal confirmation that has to be answer using `Y` or `N` to delete or cancel the command, respectively. This gives the user a chance to check the files and directories prior to deletion.
 
 #### Basic Bash commands tasks
 
-Explore some other basic commands individually by completing the following task. The answers or code samples to solve each task are at the final section of the page.
+Explore other basic commands individually by completing the following tasks. The answers or code samples to solve each task are at the final section of current page.
 
 1. Go back to the parent directory
 2. Print the complete path where you are located
-3. Change the name of the directory to 'metagenomics'
+3. Change the name of the directory 'test' to 'metagenomics'
 4. Delete the 'metagenomics' directory
 5. List the current running jobs
 
 #### Text editing commands
 
-To continue, we will explore the use of text files commands, which are relevant to work with slurm programs. There are a lot of text editor for use (e.g. vi, vim, nano, sublime). We'll use 'nano', which is newer, simpler, and easier than other editor like vim. Let's open a nano file:
+Editing text files is another relevant function to understand in Bash as you have to repeatibly type and edit code. There are a lot of text editors (e.g. vi, vim, nano, sublime). We'll use 'nano', which is newer, simpler, and easier than other editor like vim. The basic command is `nano <file_name.txt>`.
 
 ```bash
 nano note.txt
 ```
 
-This command opens a black screen where you can write in different lines. In the lower section, you have the main commands to work with the nano file. The most relevant function is to save and close the document. For this, you have to press `ctrl + x`. If the document is empty, it won't save anything in your directory (check with `ls`).
+This command opens a screen where you can type. The lower section of the screen shows the menu options of the nano editor. It is key to learn how to save and close the document. For this, you have to press `ctrl + X`. If the document is empty, the screen will close and nothing will be created in the current directory (check with `ls`).
 
-Now, open again a nano file and write some line with your name multiple times and try to exit. You'll see the document ask for another command: "Save modified buffer". This basically asks if you want to save the changes make to the document. To continue press `y`. This will require to input the file name, but as we already test the name at the beginning, just press `enter`.
+When something is typed in the screen, the `ctrl + X` command will prompt a question to 'Save modified buffer'. To save the changes make to the document, the user must type  `Y`. This will pop-up another inquiry to modify the name of the file. However, the basic commands contains the argument for file name and this can be skipped by typing `enter`.
 
-In summary, to save a nano document with modification the command `ctrl + x + y + enter` is required. Check that the document was saved in your current directory with `ls`. You can also save the file while writing using `ctrl + o` and then exit.
+In summary, to save a nano document with modification the command `ctrl + X, Y, enter` is required. Check the saved document in your current directory with `ls`.
+
+> Files open in nano can be saved while typing using `ctrl + O` and then exiting.
 
 ```bash
 [dorian.rojas@accessnode curso]$ nano note.txt
@@ -164,7 +166,7 @@ note.txt
 [dorian.rojas@accessnode curso]$
 ```
 
-Now let's explore other text file commands:
+There are other text file commands.
 
 Command|Function|Command|Function
 -------|--------|-------|--------
@@ -176,21 +178,21 @@ Command|Function|Command|Function
 
 #### Text commands tasks
 
-Using the previously created file, we are going to explore these commands through the following tasks:
+Explore the text commands through the following tasks.
 
-1. Reopen the file and write 10 lines of different cities
+1. Reopen the file and write 10 separate lines with different cities' name
 2. Print the complete document
-3. Print the last lines
-4. Print the first lines
+3. Print the file's last lines
+4. Print the file's first lines
 5. Try printing the lines little by little
-6. Create a new document with the 10 different names
-7. Concatenate the cities document with the names document
-8. Print only one line corresponding to one of the names in the document
+6. Create a new document with 10 different people names in separate lines
+7. Concatenate the cities and names documents
+8. Print only one line corresponding to one of the names in the concatenated document
 9. Count the number of lines in the concatenated document
 
 #### Other useful Bash commands
 
-These are another relevant commands useful to work in Unix systems
+Bash has other several commands.
 
 Command|Function|Command|Function
 -------|--------|-------|--------
@@ -200,11 +202,11 @@ Command|Function|Command|Function
 `wget <URL>`|Downloads file|`top`|Shows activity
 `scp <server>:<path> <path>`|Copies files between computers|`exit`|Exits remote connection
 
-Feel free to try and run these commands yourself. Be careful and ask question pertinent question to your instructur if required.
+Feel free to try and run these commands independently. Be careful and ask questions to your instructor if required.
 
 #### Wildcards
 
-Finally, Unix shell have the chance to use wildcard to select multiple files at the same times. The two most important wildcards are `*` and `?`. The asterik `*` represent zero or more characters, whereas `?` represents exactly one character. For a better understading, set a directory with the files `methane.txt` and `ethane.txt`. For instance, `*ethane.txt` would indicate both files, while `?ethane.txt` only `methane.txt`.
+Bash allows the use of wildcards to select multiple files simultaneously. The two most important wildcards are `*` and `?`. The asterik `*` represent zero or more characters, whereas `?` represents exactly one character. For a better understading, set a directory with the files `methane.txt` and `ethane.txt`. For instance, `*ethane.txt` would indicate both files, while `?ethane.txt` only `methane.txt`.
 
 ```bash
 [dorian.rojas@accessnode curso]$ ls *ethane.txt
@@ -213,13 +215,13 @@ ethane.txt  methane.txt
 methane.txt
 ```
 
-Wildcards are relevant as they help to manage large set of data. For example, if you own a directory full of .fastq files and want to concatenate them into a single file, the command `cat *.fastq` would be efficient to get the job done. If not using wildcards, each name of the files would have to be input individually, which might becomes easily exhaustive if there are more than 5 files with large and complex names.
+Wildcards are relevant in bioinformatics as they help to manage large datasets. For example, if you own a directory full of .fastq files and want to concatenate them into a single document, the command `cat *.fastq` would be efficient. If not using wildcards, each files name would have to be typed individually, which might become exhaustive if there are more than 5 files with large and complex names.
 
 ## Workshop methodology and slurm files
 
 ### Slurm files configuration and template
 
-For this workshop we will be working with slurm files. Slurm is a workload manager that enables the correct organization of commands and jobs running in the computational cluster. Slurm files are defined with `.slurm` extentions. They are normal text files with a characteristic header
+During this workshop, we will be working with slurm files. Slurm is a workload manager that enables the correct organization of jobs running in the computational cluster. Slurm files are defined with `.slurm` extentions. Briefly, they are normal text files with a characteristic header.
 
 ```vim
 #!/bin/bash
@@ -235,7 +237,11 @@ For this workshop we will be working with slurm files. Slurm is a workload manag
 #SBATCH --mail-type=END,FAIL
 ```
 
-Let's break it down for a better understanding. The first line `#!/bin/bash` is the command that allows the computer to recognize the document as a .slurm file. The folliwing lines `#SBATCH --partition=parallel` and `#SBATCH --account=parallel-24h` represent cluster/specific configurations. It is important to remark that all computational cluster are organized different. Therefore, the introduction to the cluster is essential for its correct usage.
+The first line `#!/bin/bash` is the command that allows the computer to recognize the document as a .slurm file. The following lines `#SBATCH --partition=parallel` and `#SBATCH --account=parallel-24h` represent cluster/specific configurations. It is important to remark that all computational cluster are organized differently. Therefore, the introduction to the cluster is essential for its correct usage.
+
+> The `#!/bin/bash` header is not a slurm-specific feature. Other commands to run code (e.g. `sh`) also require this header in the code file.
+
+The next lines of the file represent the job's maximum running time, number of computation nodes to use, and the number of threats.
 
 ```vim
 #SBATCH --time=24:00:00
@@ -243,7 +249,7 @@ Let's break it down for a better understanding. The first line `#!/bin/bash` is 
 #SBATCH --ntasks-per-node=64
 ```
 
-Represent the maximum time the job is allow to run for, the number of computation nodes to use, and the number of threats.
+Subsequently, the job name and output files (commonly known as log files) are specified. Due to personal preferences, logs files are divided in error file (`.e`) and output file (`.o`). This allows an easy access to errors in case of failure.
 
 ```vim
 #SBATCH --job-name="fastq"
@@ -251,25 +257,23 @@ Represent the maximum time the job is allow to run for, the number of computatio
 #SBATCH -e zz-%x-%j.e
 ```
 
-These are the job name and the name of the output files. Due to personal preferences, I separate the error file (.e) and output file (.o). So, if there is an error with the command, it can be easily accessed.
+These last configs allow the slurm software to send emails indicating if the job has began, ended, or failed. This param is set to only `END` and `FAIL`. However, to receive a "began" email, the option `BEGIN` can be added. Also, you can simplify this by changing the options to `ALL`, which specifies to all of the above email types.
 
 ```vim
 #SBATCH --mail-user=dorian.rojas@ucr.ac.cr
 #SBATCH --mail-type=END,FAIL
 ```
 
-Finally, the config are to allow the Slurm manager to send email directly to my inbox indicating when the job has ended or failed. You can also indicate it to send a "began" email by adding `BEGIN` or changing the options to `ALL`.
+> Note that most of these are personal configurations. The slurm software has a lot of `#SBATCH` flags that can be added and modified as preferred. If you have already worked with slurm and are incline to other configurations, feel free to modify the header accordingly.
 
-Note that most of these are personal configurations, the slurm file have a lot of `#SBATCH` options that can be modified as you prefer. If you have already worked with slurm and prefer other type of options, feel free to modify the header accordingly.
-
-Following in the .slurm file, it's a change directory to working directory (`cd <path>`) and the calling of an object contaning the containers path (`CTN_PATH`).
+Next, the .slurm file required to set the working directory using a `cd` command. Additionally, for most tools used in this workshop we are require to set the path to the singularity containers (`CTN_PATH`). Although this later is optional, it will simplify the code by avoiding the complete path.
 
 ```vim
 cd /home/dorian.rojas/
 CTN_PATH=/opt/ohpc/pub/containers/BIO/
 ```
 
-After this comes the command to run that specific job. Let's take the example of a template for `fastq-dump` tool. This tool allows to download data using SRA accession from the NCBI. This would be the complete slurm file.
+This completes the main configuration to the template of the `.slurm` file. Following lines are for type the code of the specific tools running in that job. For instance, this is the complete `.slurm` file to the tool `fastq-dump` tool. This software allows to download data directly from the NCBI using SRA accessions.
 
 ```vim
 #!/bin/bash
@@ -307,9 +311,9 @@ time
 
 ### Workship methodology
 
-During this workshop we will work with two samples to ensure the optimization of the computational resources and avoid saturating the cluster. In order to have a better automatization of the pipeline, the slurm files are written under a simple interconection of different files. Note automatization of workflow can be performed using other more efficient software (e.g. Nextflow, Snakemake). However, these require prior knowlegde on how to write the automatized pipeline. Therefore, we will use this Bash commands.
+For the workshop, two sample will be used to ensure the optimization of computational resources and avoid saturating the cluster. In order to have a better automatization of the pipeline, the slurm files are written under a simple interconection of different files. Automatization of workflows can be performed using other more efficient softwares (e.g. Nextflow, Snakemake). However, these require prior knowlegde on how to code the automatized pipeline. Therefore, we will use simple Bash commands.
 
-For this we use three files: a `accessions.txt`, a `batch.sh`, and a `.slurm` file. The first file contains only the sample's accession in separate lines. The second file extract the accession from the first file using a `sed` command and indicates the `.slurm` to run using that accession.
+Three files are required: a `accessions.txt`, a `batch.sh`, and a `.slurm`. The first document contains the samples' accessions in separate lines. The second file extract the accession from the first file using a `sed` command and prompts the `.slurm` to run using that accession as the input.
 
 ```bash
 [dorian.rojas@accessnode test]$ cat accessions.txt
@@ -326,9 +330,13 @@ sbatch read_qc.slurm $sample1
 sbatch read_qc.slurm $sample2
 ```
 
-Finally, the slurm is the job we want to run. In order to use the accession sent from the `batch.sh` command we code based on a _for loop_. Loops are programming structure that allow the iteration of the inside command a specific number of time. In our case, the loop runs for the number of accession indicated in the `batch.sh` file. Note we use `sed -n '1p' accessions.txt`, only the first line of the .txt, meaning one single accession. However, this could be modified for any number of accessions. For instance, `sed -n '1,8p' accessions.txt` would run eight accessions. We have coded our `batch.sh` file for only one accession due to the limited number of sample we are analyzing.
+The slurm holds the job-specific code. In order to use the accession sent from the `batch.sh` command, the `.slurm` file is coded on a _for loop_. Loops are programming structures that allow the iteration of commands a specific number of times. In our case, the loop runs for the number of accession indicated in `batch.sh`.
 
-Additionally, the `batch.sh` file indicates to the _for loop_ to use the sample accessions as sample name (`sbatch read_qc.slurm $sample1`). Therefore, in the `.slurm` file, the command `for id in $@; do` indicates to run the code for the number of ids (`id`, an object) present in `$sample1` (`$@`). In Bash, to call the object we are require to set the prompt prior the name (e.g. `$id`, `$CTN_PATH`).
+Note `sed -n '1p' accessions.txt` only selects the first line of the `.txt`, meaning one single accession. However, this could be modified for any number of accessions. For instance, `sed -n '1,8p' accessions.txt` would run eight samples. The `batch.sh` file is coded for only one accession due to the number of sample we are analyzing.
+
+With in `batch.sh`, it is indicated that the `.slurm` must run the _for loop_ using the sample accessions as sample name (`sbatch read_qc.slurm $sample1`). Therefore, in the `.slurm` file, the command `for id in $@; do` specifies to run the job for the number of ids (`$id`) present in `$sample1` (`$@`).
+
+> In Bash, to call an object, the prompt must be typed before the name (e.g. `$id`, `$CTN_PATH`).
 
 ```vim
 for id in $@; do
@@ -343,14 +351,14 @@ echo $id " downloaded"
 done
 ```
 
-It is also important to mentione that enclosing the object in braces adds the following string to the object name in the code lecture. For example:
+Enclosing the object's name in braces adds the following strings to the name in the code lecture. For example:
 
 ```bash
 id = sample1
 ${id}.fastq = sample1.fastq
 ```
 
-This will be handy in following codes when extensions and output names are required. See below an example using the quality control module of metawrap (`metawrap read_qc`). Here the input requires the extension of each paired reads file (`${sample}_1.fastq`,`${sample}_2.fastq`).
+This comes handy in following codes when extensions and output names are required. For instance, during the quality control, input arguments requires the extension of each paired reads file (`${sample}_1.fastq`,`${sample}_2.fastq`).
 
 ```vim
 for id in $@; do
@@ -368,9 +376,9 @@ echo $id " done"
 done
 ```
 
-This name selection based on the `accession.txt` and `batch.sh` files allows the `.slurm` command to run throughout multiple sample, regardless of the name. In addition, if the same code is required for a complete different dataset, creating an `accession.txt` and `batch.sh` files with their respective new information would be enough to allow to slurm command to run correctly. This permits to analyze samples more efficiently as the main `.slurm` command will only have to be created from scratch once. Some small modifications might still be needed (e.g. changing the working directory path, files paths).
+Finally, the sample selection based on `accession.txt` and `batch.sh` files allows the `.slurm` command to run throughout multiple samples, regardless of the name. To run the same job with completely differente sample, user have to create the `accession.txt` and `batch.sh` files with their respective new information. This permits to analyze samples more efficiently as the main `.slurm` command will only have to be created from scratch once. Some small modifications might still be needed (e.g. changing the working directory path, files paths).
 
-Feel free to ask any questions regarding this methodology. It is essential to understand how this interplay works to complete the workshop. However, through practice you will get a better understanding of these commands.
+Feel free to ask any questions regarding this scheme. It is essential to understand how this interplay works to complete the workshop. However, the practice will get you used to the commands.
 
 ## Task solutions
 
@@ -388,7 +396,7 @@ Feel free to ask any questions regarding this methodology. It is essential to un
     pwd
     ```
 
-3. Change the name of the directory to 'metagenomics'
+3. Change the name of the directory 'test' to 'metagenomics'
 
     ```bash
     mv test metagenomics
@@ -408,7 +416,7 @@ Feel free to ask any questions regarding this methodology. It is essential to un
 
 **Text file commands task:**
 
-1. Reopen the file and write 10 lines of different cities
+1. Reopen the file and write 10 separate lines with different cities' name
 
     ```bash
     nano note.txt
@@ -420,13 +428,13 @@ Feel free to ask any questions regarding this methodology. It is essential to un
     cat note.txt
     ```
 
-3. Print the last lines
+3. Print the file's last lines
 
     ```bash
     tail note.txt
     ```
 
-4. Print the first lines
+4. Print the file's first lines
 
     ```bash
     head note.txt
@@ -438,19 +446,19 @@ Feel free to ask any questions regarding this methodology. It is essential to un
     more note.txt
     ```
 
-6. Create a new document with the 10 different names
+6. Create a new document with 10 different people names in separate lines
 
     ```bash
     nano names.txt
     ```
 
-7. Concatenate the cities document with the names document
+7. Concatenate the cities and names documents
 
     ```bash
     cat note.txt names.txt > concat.txt
     ```
 
-8. Print only one line corresponding to one of the names in the document
+8. Print only one line corresponding to one of the names in the concatenated document
 
     ```bash
     grep "dorian" concat.txt
