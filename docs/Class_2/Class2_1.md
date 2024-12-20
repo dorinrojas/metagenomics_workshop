@@ -364,9 +364,9 @@ C:.
 
 Open each file and analyze them as html.
 
-## Task solutions
+## Code templates
 
-**accession.txt file:**
+**`accession.txt` file:**
 
 ```bash
 [dorian.rojas@accessnode test]$ cat accessions.txt
@@ -374,7 +374,7 @@ SRR9988196
 SRR8555091
 ```
 
-**batch.sh file:**
+**`batch.sh` file:**
 
 ```vim
 #!/bin/bash
@@ -386,7 +386,7 @@ sbatch read_qc.slurm $sample1
 sbatch read_qc.slurm $sample2
 ```
 
-**fasterq-dump.slurm:**
+**`fasterq-dump.slurm` file:**
 
 ```vim
 #!/bin/bash
@@ -418,7 +418,7 @@ date
 time
 ```
 
-**read_qc.slurm:**
+**`read_qc.slurm:` file**
 
 ```vim
 #!/bin/bash
